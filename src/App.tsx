@@ -2,11 +2,13 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import Application from "./application/Application";
+import Count from "./counter/Count";
 
 function App() {
   return (
     <div className="App">
       <Application />
+      <Count/>
     </div>
   );
 }
@@ -64,3 +66,10 @@ export default App;
 
 
 //Manual Queries
+
+//debugging Methods
+// screen.debug()
+//logRoles()
+
+
+//User Interactions

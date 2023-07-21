@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen,logRoles } from "@testing-library/react";
 import Skill from "./Skill";
 
 describe("Skills Map", () => {
@@ -32,7 +32,9 @@ describe("Skills Map", () => {
   });
 
   it("start learning button renders in DOM", async () => {
-    render(<Skill skills={skills} />);
+    const view=render(<Skill skills={skills} />);
+    // screen.debug()
+    logRoles(view.container)
     const startLearningBtn = await screen.findByRole(
       "button",
       {
@@ -42,6 +44,7 @@ describe("Skills Map", () => {
         timeout: 2000,
       }
     );
+    // screen.debug()
     expect(startLearningBtn).toBeInTheDocument();
   });
 });
