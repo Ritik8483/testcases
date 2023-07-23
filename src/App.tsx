@@ -3,13 +3,20 @@ import logo from "./logo.svg";
 import "./App.css";
 import Application from "./application/Application";
 import Count from "./counter/Count";
+import AppProviders from "./providers/AppProviders";
+import MuiMode from "./mui/MuiMode";
 
 function App() {
   return (
-    <div className="App">
-      <Application />
-      <Count/>
-    </div>
+    // <div className="App">
+    //   <Application />
+    //   <Count/>
+    // </div>
+    <AppProviders>
+      <div className="App">
+        <MuiMode />
+      </div>
+    </AppProviders>
   );
 }
 
@@ -58,12 +65,11 @@ export default App;
 
 //queryByRole or querAllByRole
 // As getAllByRole and getByRole through an error if they can'nt find the matching element
-//so queryByRole returns null if no elements match 
+//so queryByRole returns null if no elements match
 
 //findByRole and findAllByRole
 //returns promise which resolves when an element is found
-//rejected after element is not found for 1s 
-
+//rejected after element is not found for 1s
 
 //Manual Queries
 
@@ -71,5 +77,11 @@ export default App;
 // screen.debug()
 //logRoles()
 
-
 //User Interactions
+//POINTERS
+// toHaveTextContent("0")  gives text inside h1-h6
+//import "userEvent" from testing library, then userEvent.click
+//all user api area async so use async await user.click()
+
+//API
+//click is a convenience api
