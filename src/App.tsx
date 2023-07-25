@@ -5,6 +5,7 @@ import Application from "./application/Application";
 import Count from "./counter/Count";
 import AppProviders from "./providers/AppProviders";
 import MuiMode from "./mui/MuiMode";
+import Users from "./users/Users";
 
 function App() {
   return (
@@ -12,11 +13,12 @@ function App() {
     //   <Application />
     //   <Count/>
     // </div>
-    <AppProviders>
-      <div className="App">
-        <MuiMode />
-      </div>
-    </AppProviders>
+    // <AppProviders>
+    //   <div className="App">
+    //     <MuiMode />
+    //   </div>
+    // </AppProviders>
+    <Users/>
   );
 }
 
