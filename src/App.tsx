@@ -6,6 +6,7 @@ import Count from "./counter/Count";
 import AppProviders from "./providers/AppProviders";
 import MuiMode from "./mui/MuiMode";
 import Users from "./users/Users";
+import ReactSelect from "./users/ReactSelect";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
     //   </div>
     // </AppProviders>
     <Users/>
+    // <ReactSelect/>
   );
 }
 
