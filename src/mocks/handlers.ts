@@ -58,11 +58,30 @@ export const handlers = [
     "https://jsonplaceholder.typicode.com/posts/:id",
     (req, res, ctx) => {
       const { id }: any = req.params;
-      users = users.filter((u:any) => u.id !== parseInt(id));
-      return res(
-        ctx.status(200),
-        ctx.json({ message: "Added name" })
-      );
+      users = users.filter((u: any) => u.id !== parseInt(id));
+      return res(ctx.status(200), ctx.json({ success: true }));
     }
   ),
+
+  rest.put(
+    "https://jsonplaceholder.typicode.com/posts/:id",
+    (req, res, ctx) => {
+      const { id } = req.params;
+      const { title, body }: any = req.json();
+      const updatedPost = { id, title, body };
+      return res(ctx.status(200), ctx.json(updatedPost));
+    }
+  ),
+
+  // rest.delete(
+  //   "https://jsonplaceholder.typicode.com/posts/:id",
+  //   (req, res, ctx) => {
+  //     const { id }: any = req.params;
+  //     users = users.filter((u:any) => u.id !== parseInt(id));
+  //     return res(
+  //       ctx.status(200),
+  //       ctx.json({ success: true })
+  //     );
+  //   }
+  // ),
 ];

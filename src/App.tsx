@@ -7,6 +7,7 @@ import AppProviders from "./providers/AppProviders";
 import MuiMode from "./mui/MuiMode";
 import Users from "./users/Users";
 import ReactSelect from "./users/ReactSelect";
+import UserTable from "./users/UserTable";
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
     //     <MuiMode />
     //   </div>
     // </AppProviders>
-    <Users/>
+    // <Users/>
+    <UserTable />
     // <ReactSelect/>
   );
 }
@@ -28,7 +30,7 @@ export default App;
 
 //ABOUT TEST
 //.test.tsx,.spect.tsx,__tests__ is src folder
-//can use it instead of test,fit font only,xit for skip
+//can use it instead of test,fit for only,xit for skip
 // test are written inside App.test.tsx or Greet.test.tsx
 //test(name,function,timeout is optional default is 5s)
 // watch mode: If we commit out code with App.test.tsx then jest will only run Greet.test.tsx
@@ -89,3 +91,6 @@ export default App;
 
 //API
 //click is a convenience api
+
+//act()
+//react state updates should be wrapped inside act()

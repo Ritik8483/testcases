@@ -47,7 +47,7 @@
 // });
 // });
 
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import Users from "./Users";
 import { server } from "../mocks/server";
 import { rest } from "msw";
@@ -87,19 +87,23 @@ describe("User API tests", () => {
     expect(users).toHaveLength(1);
     const deleteButton = screen.getByText("Delete");
     fireEvent.click(deleteButton);
-    // const responseText = await screen.findByText(
-    //   "Added name",
-    //   {},
-    //   { timeout: 2000 }
-    // );
-    // expect(responseText).not.toBeInTheDocument();
+    await waitFor(() => {
+      const deletedPostTitle = screen.queryByText(
+        "sunt aut facere repellat provident occaecati excepturi optio reprehenderit"
+      );
+      expect(deletedPostTitle).toBeNull();
+    });
+  });
 
-    // await screen.findByText("Added name", { timeout: 1000, shouldNotExist: true });
-
-  // Verify that only 1 user is left in the list
-  const remainingUsers = await screen.findAllByRole("listitem");
-  expect(remainingUsers).toHaveLength(1);
-
-  
+  test("renders update button and handles the update API response", async () => {
+    render(<Users />);
+    const users = await screen.findAllByRole("listitem");
+    expect(users).toHaveLength(1);
+    const updateButton = screen.getByText("Update");
+    fireEvent.click(updateButton);
+    const updatedPostTitle = await screen.findByText("Updated Post Title");
+    const updatedPostBody = await screen.findByText("Updated body of Post 1.");
+    expect(updatedPostTitle).toBeInTheDocument();
+    expect(updatedPostBody).toBeInTheDocument();
   });
 });

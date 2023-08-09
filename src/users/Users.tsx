@@ -96,7 +96,7 @@ const Users = () => {
     );
     setUsers((prevUsers: any) =>
       prevUsers.filter((user: any) => user.id !== userId)
-    );
+    ); 
   };
 
   return (
